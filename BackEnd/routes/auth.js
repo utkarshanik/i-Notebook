@@ -82,7 +82,8 @@ router.post('/login',[
       let user=await User.findOne({email});
       if(!user)
       {
-        return res.status(400).json({error:"Try with right credentials"});
+        success=fasle;
+        return res.status(400).json({success,error:"Try with right credentials"});
       }
       const comparePassword=await bcrypt.compare(password, user.password);
       if(!comparePassword)

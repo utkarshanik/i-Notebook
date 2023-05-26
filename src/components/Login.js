@@ -1,6 +1,7 @@
 import React, { useState,useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
 import NoteContext from '../context/Notes/NoteContext'
+import {Link} from 'react-router-dom'
 
 const Login = () => {
 const context = useContext(NoteContext)
@@ -28,13 +29,14 @@ const handle =async(e)=>
          if(json.success)
          {
             //save the token and redirect
-            localStorage.setItem('token',json.authtoken);
+            localStorage.setItem('token',json.jwtData);
             navigate("/");
+            showAlert("Login Successful")
+
          }
          else
          {
                showAlert("Please Enter Valid Data") 
-               
          }
     }  
 
@@ -52,17 +54,20 @@ setcred({...cred,[e.target.name]:e.target.value})
   <form onSubmit={handle}>
   <div className="mb-3">
     <label htmlFor="email" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="email" name="email" onChange={onchange} value={cred.email} aria-describedby="emailHelp"/>
+    <input type="email" className="form-control" id="email" name="email" onChange={onchange} value={cred.email} aria-describedby="emailHelp" autoComplete="current-email"/>
     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
 
   <div className="mb-3">
     <label htmlFor="password" className="form-label">Password</label>
-    <input type="password" className="form-control" id="password" value={cred.password} onChange={onchange} name="password"/>
+    <input type="password" className="form-control" id="password" value={cred.password} onChange={onchange} name="password" autoComplete="current-password"/>
   </div>
 
   <button type="submit" className="btn btn-primary">Submit</button>
 </form>
+ <div className="container my-4 mx--19"  >
+     <span className="psw">Not Registered <Link to="/signup">Create an Account ?</Link></span>
+  </div>
     </div>
   )
 }

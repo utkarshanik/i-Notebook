@@ -1,6 +1,7 @@
 import React, { useState,useContext } from 'react'
-import {useNavigate} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import NoteContext from '../context/Notes/NoteContext'
+
 
 
 const Signup = () => {
@@ -27,13 +28,13 @@ const Signup = () => {
            if(json.success)
            {
               //save the token and redirect
-              localStorage.setItem('token',json.authtoken);
+              localStorage.setItem('token',json.jwtData);
               navigate("/");
+              showAlert("Account created successfully ") 
            }
            else
            {
-                 showAlert("Sorry User Already Exist !!! ") 
-                 
+                 showAlert("Sorry User Already Exist !!! ")                  
            }
       }  
   
@@ -76,6 +77,9 @@ return (
 
   
   <button type="submit" className="btn btn-primary">Submit</button>
+  <div className="container my-4 mx--19"  >
+     <span className="psw">Already have an Account <Link to="/login ">Log In here ?</Link></span>
+  </div>
 </form>
     </div>
   )

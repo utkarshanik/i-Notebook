@@ -13,7 +13,7 @@ const NoteState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ1YmRhYTBiYmZmMTdlOWQyODIzYjY2In0sImlhdCI6MTY4Mzc0MTM3M30.540Cm6Fr02Lzmr4XsLNfzkl8EU0zGaCMUHbPuI7pPiA"
+        "auth-token": localStorage.getItem('token')
       },
     });
     const json = await response.json();
@@ -28,7 +28,7 @@ const NoteState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ1YmRhYTBiYmZmMTdlOWQyODIzYjY2In0sImlhdCI6MTY4Mzc0MTM3M30.540Cm6Fr02Lzmr4XsLNfzkl8EU0zGaCMUHbPuI7pPiA"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag }),
     });
@@ -47,7 +47,7 @@ const NoteState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ1YmRhYTBiYmZmMTdlOWQyODIzYjY2In0sImlhdCI6MTY4Mzc0MTM3M30.540Cm6Fr02Lzmr4XsLNfzkl8EU0zGaCMUHbPuI7pPiA"
+        "auth-token": localStorage.getItem('token')
       },
    });
     const json = response.json();
@@ -68,12 +68,12 @@ const NoteState = (props) => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ1YmRhYTBiYmZmMTdlOWQyODIzYjY2In0sImlhdCI6MTY4Mzc0MTM3M30.540Cm6Fr02Lzmr4XsLNfzkl8EU0zGaCMUHbPuI7pPiA"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description, tag }),
     });
     const json = response.json();
-  
+ console.log(json)  
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];
       if (element._id === id) {
@@ -85,7 +85,6 @@ const NoteState = (props) => {
   };
 
   const [mes, setAlert] = useState(null);
-
   const showAlert = (message) => {
     setAlert({mas:message});
     setTimeout(() => {

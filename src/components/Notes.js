@@ -12,8 +12,14 @@ const Notes = () => {
     let navigate=useNavigate();
 
     useEffect( () => {
+      if(localStorage.getItem('token'))
+      {
      getNote()
-      /* eslint-disable */ 
+    }
+    else{
+        navigate("/login")
+    } 
+     /* eslint-disable */ 
     },[])
     
 
