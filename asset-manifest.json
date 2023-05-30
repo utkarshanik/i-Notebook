@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/.github.io/i-Notebook/static/css/main.598a6723.css",
+    "main.js": "/.github.io/i-Notebook/static/js/main.ea8b44e4.js",
+    "index.html": "/.github.io/i-Notebook/index.html",
+    "main.598a6723.css.map": "/.github.io/i-Notebook/static/css/main.598a6723.css.map",
+    "main.ea8b44e4.js.map": "/.github.io/i-Notebook/static/js/main.ea8b44e4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.598a6723.css",
+    "static/js/main.ea8b44e4.js"
+  ]
+}
