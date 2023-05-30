@@ -18,7 +18,8 @@ const Signup = () => {
           const response = await fetch(`http://localhost:5000/api/auth/createUser`, {
           method: "POST",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "https://utkarshanik.github.io"
               // "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjQ1YmRhYTBiYmZmMTdlOWQyODIzYjY2In0sImlhdCI6MTY4Mzc0MTM3M30.540Cm6Fr02Lzmr4XsLNfzkl8EU0zGaCMUHbPuI7pPiA",
             },
             body: JSON.stringify({ name,email,password }),
